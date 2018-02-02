@@ -2,7 +2,12 @@
 
 set -e
 
-if [[ "${android_manifest_path}" != "" ]]; then
+if [[ "${android_manifest_path}" == "" ]]; then
+    echo
+    echo "--- android_manifest_path must be provided to the step (relative to source code root). Example: MyAndroidApp/Properties/AndroidManifest.xml"
+    echo "--- Terminating..."
+    echo
+else
 
     if [[ ! -f "${android_manifest_path}" ]]; then 
         echo
